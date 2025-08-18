@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Snake Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Snake Game</h1>
+  <div id="game-container">
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <div id="score">Score: 0</div>
+    <button onclick="restartGame()">Restart</button>
+    <button id="musicToggleBtn" onclick="toggleMusic()">Music: On</button>
+  </div>
+    <audio id="eatSound" src="https://cdn.pixabay.com/audio/2022/07/26/audio_124b87b86a.mp3"></audio>
+    <audio id="bgMusic" src="snake_tension_loop.wav" loop></audio>
+    <audio id="gameOverSound"
+    src="snake_gameover.wav"></audio>
+  <script src="script.js"></script>
+</body>
+</html>

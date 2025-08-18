@@ -1,0 +1,31 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  text-align: center;
+  padding-top: 40px;
+}
+#game-container {
+  display: inline-block;
+  background: #eee;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px #bbb;
+}
+canvas {
+  background: #222;
+  display: block;
+  margin: 0 auto 16px auto;
+  border-radius: 4px;
+}
+#score {
+  font-size: 1.25em;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+button {
+  padding: 8px 18px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 12px;
+  border-radius: 5px;
+}

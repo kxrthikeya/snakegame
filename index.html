@@ -21,34 +21,17 @@
     <div class="ctrl-btn" ontouchstart="move('RIGHT')" onclick="move('RIGHT')">➡️</div>
   </div>
 </div>
-
-<style>
+style>
 #controls {
   text-align: center;
   margin-top: 10px;
-  user-select: none;
 }
-.ctrl-row {
-  display: flex;
-  justify-content: center;
-}
-.ctrl-btn {
-  width: 70px;
-  height: 70px;
+#controls button {
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
   margin: 5px;
-  font-size: 30px;
-  line-height: 70px;
-  background: #444;
-  color: white;
-  border-radius: 12px;
-  text-align: center;
-  touch-action: manipulation; /* no delay */
 }
-.ctrl-btn:active {
-  background: #666;
-}
-</style>
-
 </style>
     <div id="score">Score: 0</div>
     <button onclick="restartGame()">Restart</button>
@@ -59,6 +42,8 @@
     <audio id="gameOverSound"
     src="snake_gameover.wav"></audio>
   <script src="script.js"></script>
+
 </body>
 </html>
+
 

@@ -9,6 +9,25 @@
   <h1>Snake Game</h1>
   <div id="game-container">
     <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <div id="controls">
+  <button onclick="move('UP')">⬆️</button><br>
+  <button onclick="move('LEFT')">⬅️</button>
+  <button onclick="move('DOWN')">⬇️</button>
+  <button onclick="move('RIGHT')">➡️</button>
+</div>
+
+<style>
+#controls {
+  text-align: center;
+  margin-top: 10px;
+}
+#controls button {
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  margin: 5px;
+}
+</style>
     <div id="score">Score: 0</div>
     <button onclick="restartGame()">Restart</button>
     <button id="musicToggleBtn" onclick="toggleMusic()">Music: On</button>

@@ -81,12 +81,18 @@ document.addEventListener("touchstart", function(e) {
   startY = e.touches[0].clientY;
 }, false);
 
+//swipe handler
+
 document.addEventListener("touchend", function(e) {
   let endX = e.changedTouches[0].clientX;
   let endY = e.changedTouches[0].clientY;
 
   let dxSwipe = endX - startX;
   let dySwipe = endY - startY;
+
+  if (direction === null && bgMusic && bgMusic.paused && musicOn) {
+    bgMusic.play(); // start music on first swipe
+  }
 
   if (Math.abs(dxSwipe) > Math.abs(dySwipe)) {
     if (dxSwipe > 0 && direction !== "LEFT") direction = "RIGHT";
@@ -97,14 +103,22 @@ document.addEventListener("touchend", function(e) {
   }
 }, false);
 
+
+
+
+
 // Button controls
-function move(dir) {
+
+  function move(dir) {
+  if (direction === null && bgMusic && bgMusic.paused && musicOn) {
+    bgMusic.play(); // start music on first tap
+  }
+
   if (dir === "UP" && direction !== "DOWN") direction = "UP";
   else if (dir === "DOWN" && direction !== "UP") direction = "DOWN";
   else if (dir === "LEFT" && direction !== "RIGHT") direction = "LEFT";
   else if (dir === "RIGHT" && direction !== "LEFT") direction = "RIGHT";
 }
-  
 
 // Main game loop
 function draw() {

@@ -73,6 +73,17 @@ function generateFood() {
   }
 }
 
+function move(direction) {
+  if (direction === "UP" && dy === 0) {
+    dx = 0; dy = -10;
+  } else if (direction === "DOWN" && dy === 0) {
+    dx = 0; dy = 10;
+  } else if (direction === "LEFT" && dx === 0) {
+    dx = -10; dy = 0;
+  } else if (direction === "RIGHT" && dx === 0) {
+    dx = 10; dy = 0;
+  }
+}
 // Listen for arrow key presses
 document.addEventListener("keydown", setDirection);
 

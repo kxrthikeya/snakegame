@@ -11,21 +11,14 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 8px #bbb;
 }
-canvas {
-  display: block;
-  margin: 0 auto;
-  background: #222;
-  border: 2px solid black;
-  touch-action: none; /* stop double-tap zoom */
-  max-width: 95vw;   /* responsive */
-  height: auto;
-}
+
 
 
 canvas {
   background: #222;
   display: block;
   margin: 0 auto 16px auto;
+  touch-action: none; 
   border-radius: 4px;
 }
 #score {

@@ -119,6 +119,17 @@ document.addEventListener("touchend", function(e) {
   else if (dir === "LEFT" && direction !== "RIGHT") direction = "LEFT";
   else if (dir === "RIGHT" && direction !== "LEFT") direction = "RIGHT";
 }
+// keyword controls
+document.addEventListener("keydown", function(event) {
+  if (direction === null && bgMusic && bgMusic.paused && musicOn) {
+    bgMusic.play(); // start music at first key press
+  }
+
+  if (event.key === "ArrowLeft" && direction !== "RIGHT") direction = "LEFT";
+  else if (event.key === "ArrowUp" && direction !== "DOWN") direction = "UP";
+  else if (event.key === "ArrowRight" && direction !== "LEFT") direction = "RIGHT";
+  else if (event.key === "ArrowDown" && direction !== "UP") direction = "DOWN";
+});
 
 // Main game loop
 function draw() {

@@ -72,6 +72,28 @@ function generateFood() {
     }
   }
 }
+let startX, startY, endX, endY;
+
+document.addEventListener("touchstart", function(e) {
+  startX = e.touches[0].clientX;
+  startY = e.touches[0].clientY;
+}, false);
+
+document.addEventListener("touchend", function(e) {
+  endX = e.changedTouches[0].clientX;
+  endY = e.changedTouches[0].clientY;
+
+  let dxSwipe = endX - startX;
+  let dySwipe = endY - startY;
+
+  if (Math.abs(dxSwipe) > Math.abs(dySwipe)) {
+    if (dxSwipe > 0 && dx === 0) { dx = 10; dy = 0; } // right
+    else if (dxSwipe < 0 && dx === 0) { dx = -10; dy = 0; } // left
+  } else {
+    if (dySwipe > 0 && dy === 0) { dx = 0; dy = 10; } // down
+    else if (dySwipe < 0 && dy === 0) { dx = 0; dy = -10; } // up
+  }
+}, false);
 
 function move(direction) {
   if (direction === "UP" && dy === 0) {

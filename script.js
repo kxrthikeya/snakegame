@@ -72,7 +72,9 @@ function generateFood() {
     }
   }
 }
-let startX, startY, endX, endY;
+
+  // Swipe controls
+let startX, startY;
 
 document.addEventListener("touchstart", function(e) {
   startX = e.touches[0].clientX;
@@ -80,47 +82,29 @@ document.addEventListener("touchstart", function(e) {
 }, false);
 
 document.addEventListener("touchend", function(e) {
-  endX = e.changedTouches[0].clientX;
-  endY = e.changedTouches[0].clientY;
+  let endX = e.changedTouches[0].clientX;
+  let endY = e.changedTouches[0].clientY;
 
   let dxSwipe = endX - startX;
   let dySwipe = endY - startY;
 
   if (Math.abs(dxSwipe) > Math.abs(dySwipe)) {
-    if (dxSwipe > 0 && dx === 0) { dx = 10; dy = 0; } // right
-    else if (dxSwipe < 0 && dx === 0) { dx = -10; dy = 0; } // left
+    if (dxSwipe > 0 && direction !== "LEFT") direction = "RIGHT";
+    else if (dxSwipe < 0 && direction !== "RIGHT") direction = "LEFT";
   } else {
-    if (dySwipe > 0 && dy === 0) { dx = 0; dy = 10; } // down
-    else if (dySwipe < 0 && dy === 0) { dx = 0; dy = -10; } // up
+    if (dySwipe > 0 && direction !== "UP") direction = "DOWN";
+    else if (dySwipe < 0 && direction !== "DOWN") direction = "UP";
   }
 }, false);
 
-function move(direction) {
-  if (direction === "UP" && dy === 0) {
-    dx = 0; dy = -10;
-  } else if (direction === "DOWN" && dy === 0) {
-    dx = 0; dy = 10;
-  } else if (direction === "LEFT" && dx === 0) {
-    dx = -10; dy = 0;
-  } else if (direction === "RIGHT" && dx === 0) {
-    dx = 10; dy = 0;
-  }
+// Button controls
+function move(dir) {
+  if (dir === "UP" && direction !== "DOWN") direction = "UP";
+  else if (dir === "DOWN" && direction !== "UP") direction = "DOWN";
+  else if (dir === "LEFT" && direction !== "RIGHT") direction = "LEFT";
+  else if (dir === "RIGHT" && direction !== "LEFT") direction = "RIGHT";
 }
-// Listen for arrow key presses
-document.addEventListener("keydown", setDirection);
-
-function setDirection(event) {
-  // Start background music on the first key press
-  if (direction === null && bgMusic && bgMusic.paused) {
-    bgMusic.play();
-  }
-
-  const key = event.key;
-  if (key === "ArrowLeft" && direction !== "RIGHT") direction = "LEFT";
-  else if (key === "ArrowUp" && direction !== "DOWN") direction = "UP";
-  else if (key === "ArrowRight" && direction !== "LEFT") direction = "RIGHT";
-  else if (key === "ArrowDown" && direction !== "UP") direction = "DOWN";
-}
+  
 
 // Main game loop
 function draw() {

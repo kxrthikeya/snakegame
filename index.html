@@ -11,24 +11,44 @@
   <h1>Snake Game</h1>
   <div id="game-container">
     <canvas id="gameCanvas" width="400" height="400"></canvas>
-    <div id="controls">
-  <button onclick="move('UP')">⬆️</button><br>
-  <button onclick="move('LEFT')">⬅️</button>
-  <button onclick="move('DOWN')">⬇️</button>
-  <button onclick="move('RIGHT')">➡️</button>
+   <div id="controls">
+  <div class="ctrl-row">
+    <div class="ctrl-btn" ontouchstart="move('UP')" onclick="move('UP')">⬆️</div>
+  </div>
+  <div class="ctrl-row">
+    <div class="ctrl-btn" ontouchstart="move('LEFT')" onclick="move('LEFT')">⬅️</div>
+    <div class="ctrl-btn" ontouchstart="move('DOWN')" onclick="move('DOWN')">⬇️</div>
+    <div class="ctrl-btn" ontouchstart="move('RIGHT')" onclick="move('RIGHT')">➡️</div>
+  </div>
 </div>
 
 <style>
 #controls {
   text-align: center;
   margin-top: 10px;
+  user-select: none;
 }
-#controls button {
-  width: 60px;
-  height: 60px;
-  font-size: 24px;
+.ctrl-row {
+  display: flex;
+  justify-content: center;
+}
+.ctrl-btn {
+  width: 70px;
+  height: 70px;
   margin: 5px;
+  font-size: 30px;
+  line-height: 70px;
+  background: #444;
+  color: white;
+  border-radius: 12px;
+  text-align: center;
+  touch-action: manipulation; /* no delay */
 }
+.ctrl-btn:active {
+  background: #666;
+}
+</style>
+
 </style>
     <div id="score">Score: 0</div>
     <button onclick="restartGame()">Restart</button>

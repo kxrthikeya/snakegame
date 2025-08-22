@@ -1,44 +1,44 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta https-eqiv="X-UA-compatible" content="IE=EDGE">
-  <meta name="viewport" content="width=divce-width,inital-scale=1.0>"
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
   <link rel="stylesheet" href="style.css">
+  <title>Snake Game</title>
 </head>
 <body>
   <h1>Snake Game</h1>
-  <div id="game-container">
-    <canvas id="gameCanvas" width="400" height="400"></canvas>
-    <div id="controls">
-  <button onclick="move('UP')">⬆️</button><br>
-  <button onclick="move('LEFT')">⬅️</button>
-  <button onclick="move('DOWN')">⬇️</button>
-  <button onclick="move('RIGHT')">➡️</button>
-</div>
 
-<style>
-#controls {
-  text-align: center;
-  margin-top: 10px;
-}
-#controls button {
-  width: 60px;
-  height: 60px;
-  font-size: 24px;
-  margin: 5px;
-}
-</style>
+  <div id="game-container">
+    <!-- Game Board -->
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    
+    <!-- Controls (Mobile Friendly D-Pad) -->
+    <div id="controls">
+      <div></div>
+      <button onclick="move('UP')">⬆️</button>
+      <div></div>
+      <button onclick="move('LEFT')">⬅️</button>
+      <button onclick="move('DOWN')">⬇️</button>
+      <button onclick="move('RIGHT')">➡️</button>
+    </div>
+
+    <!-- Score + Options -->
     <div id="score">Score: 0</div>
-    <button onclick="restartGame()">Restart</button>
-    <button id="musicToggleBtn" onclick="toggleMusic()">Music: On</button>
+    <div id="options">
+      <button onclick="restartGame()">Restart</button>
+      <button id="musicToggleBtn" onclick="toggleMusic()">Music: On</button>
+    </div>
   </div>
-    <audio id="eatSound" src="https://cdn.pixabay.com/audio/2022/07/26/audio_124b87b86a.mp3"></audio>
-    <audio id="bgMusic" src="snake_tension_loop.wav" loop></audio>
-    <audio id="gameOverSound"
-    src="snake_gameover.wav"></audio>
+
+  <!-- Sounds -->
+  <audio id="eatSound" src="https://cdn.pixabay.com/audio/2022/07/26/audio_124b87b86a.mp3"></audio>
+  <audio id="bgMusic" src="snake_tension_loop.wav" loop></audio>
+  <audio id="gameOverSound" src="snake_gameover.wav"></audio>
+
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
